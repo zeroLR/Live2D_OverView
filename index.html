@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live 2D Preview</title>
+</head>
+<body>
+
+<!------ 位置可自定义 ------>
+<div class="Canvas" id="L2dCanvas"></div>
+<div class="container">
+    <select name="" id="selector" onchange="load(this)">
+        <option>abeikelongbi_3</option>
+        <option>aidang_2</option>
+        <option>aierdeliqi_4</option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+    </select>
+</div>
+<!------ 依赖 JS ------>
+<!---- 可选 ---->
+<!-- 兼容低版本浏览器 -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"> </script>
+<!-- 音频播放兼容 -->
+<script src="https://cdn.jsdelivr.net/npm/howler@2.1.3/dist/howler.min.js"></script>
+<!---- 必需 ---->
+<script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@4.6.1/dist/pixi.min.js"></script>
+<!-- live2dv3.js -->
+<script src="https://cdn.jsdelivr.net/npm/live2dv3@1.2.2/live2dv3.min.js"></script>
+<!------ 加载Live2d模型 ------>
+<script>
+window.onload = () => {
+    let model = new l2dViewer({
+        el: document.getElementById('L2dCanvas'), // 要添加Live2d的元素, 支持dom选择器和jq选择器
+        basePath: '/', // 模型根目录
+        modelName: 'abeikelongbi_3', // 模型名称
+        sounds: []
+    });
+
+    window.load =(op)=>{
+        let target = op.options[op.selectedIndex].text
+        console.log(target);
+        model.loadModel(target);
+    }
+}
+</script>
+<style>
+    #L2dCanvas{
+        margin-top: 10rem;
+        text-align: center;
+        z-index: 99999999;
+    }
+    .container{
+        width: 100%;
+        text-align: center;
+    }
+
+    /* #L2dCanvas canvas{
+        width: 400px !important;
+        height: 250px !important;
+    } */
+
+    @media (max-width: 767px){
+        #L2dCanvas canvas{
+        width: 400px !important;
+        height: 250px !important;
+    }
+    }
+
+</style>
+</body>
+</html>
